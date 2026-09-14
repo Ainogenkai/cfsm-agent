@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  cfsm-agent:
+    image: ghcr.io/${{ toLowerCase(github.repository) }}/cfsm-agent:latest
+    container_name: cfsm-agent
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./config:/config

@@ -18,6 +18,8 @@ COPY --from=builder /cf-probe /usr/local/bin/cf-probe
 
 # 复制 entrypoint
 COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
 
 # 容器以正常方式启动（前台）
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
